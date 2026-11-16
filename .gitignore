@@ -1,0 +1,8 @@
+neuroforge-env/
+__pycache__/
+*.pyc
+.vscode/
+.ipynb_checkpoints/
+*.pt
+*.pth
+data_cache/
