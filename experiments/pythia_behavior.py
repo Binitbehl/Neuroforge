@@ -1,7 +1,7 @@
 import gc
 import torch
 from transformer_lens import HookedTransformer
-from nforge.ioi_data import make_pairs
+from nforge.data.ioi import make_pairs
 from nforge.core import build_batches, per_example
 
 MODEL = "pythia-70m"

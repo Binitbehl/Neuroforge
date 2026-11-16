@@ -2,7 +2,7 @@ import time
 import torch
 from collections import defaultdict
 from transformer_lens import HookedTransformer
-from nforge.ioi_data import make_pairs
+from nforge.data.ioi import make_pairs
 
 # ---------------- Settings ----------------
 N_PAIRS = 30          # pairs per set (raise to 60+ once it runs fast)

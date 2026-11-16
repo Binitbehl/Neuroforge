@@ -1,5 +1,5 @@
 import torch
-from nforge.core import per_example
+from nforge.patching.ablation import per_example
 
 
 def validate(model, test, circuit, n_random=20, seed=0, n_boot=1000):

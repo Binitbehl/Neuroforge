@@ -1,5 +1,5 @@
 from transformer_lens import HookedTransformer
-from nforge.ioi_data import make_pairs
+from nforge.data.ioi import make_pairs
 
 model = HookedTransformer.from_pretrained("gpt2")
 pairs = make_pairs(model, n=5)

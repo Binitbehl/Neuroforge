@@ -1,7 +1,7 @@
 from transformer_lens import HookedTransformer
-from nforge.ioi_data import make_pairs
+from nforge.data.ioi import make_pairs
 from nforge.core import build_batches, per_example, attribution_scores
-from nforge.validate import validate
+from nforge.validation.circuit import validate
 
 model = HookedTransformer.from_pretrained("gpt2")
 model.eval()
