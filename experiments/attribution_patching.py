@@ -2,7 +2,9 @@ import time
 import torch
 from transformer_lens import HookedTransformer
 from nforge.data.ioi import make_pairs
-from nforge.core import build_batches, per_example, logit_diff, only_z
+from nforge.activations.batches import build_batches, logit_diff, only_z
+from nforge.patching.ablation import per_example
+from nforge.discovery.attribution import attribution_scores
 
 model = HookedTransformer.from_pretrained("gpt2")
 model.eval()
