@@ -1,6 +1,6 @@
 import torch
 from collections import defaultdict
-from nforge.activations.batches import logit_diff
+from nforge.activations.batches import score
 
 
 def run_with_overwrite(model, b, tokens, heads, source_cache):
@@ -18,7 +18,7 @@ def run_with_overwrite(model, b, tokens, heads, source_cache):
 
         hooks.append((name, hook))
     with torch.no_grad():
-        return logit_diff(model.run_with_hooks(tokens, fwd_hooks=hooks), b)
+        return score(model.run_with_hooks(tokens, fwd_hooks=hooks), b)
 
 
 def per_example(model, batches, tokens_key, heads, cache_key):
