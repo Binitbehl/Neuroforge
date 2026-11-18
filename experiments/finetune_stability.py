@@ -15,7 +15,9 @@ from nforge.patching.ablation import per_example
 from nforge.stability.compare import jaccard, rank_corr
 
 DATA = sys.argv[1] if len(sys.argv) > 1 else "code"     # "code" or "wiki"
-STEPS, BATCH, SEQ, LR, MAX_MINUTES = 300, 8, 128, 1e-5, 25
+LR = float(sys.argv[2]) if len(sys.argv) > 2 else 1e-5
+STEPS, BATCH, SEQ, MAX_MINUTES = 300, 4, 64, 25
+TAG = f"{DATA}_lr{LR:g}"
 KEY_HEADS = [(2, 1), (2, 7), (3, 0), (3, 1), (3, 3), (3, 5), (3, 6)]
 torch.manual_seed(0)
 
@@ -111,5 +113,5 @@ for l, h in KEY_HEADS:
 
 json.dump(dict(base_kept=b["kept"].tolist(), tuned_kept=a["kept"].tolist(),
                loss=[before["loss"], after["loss"]], acc=[before["acc"], after["acc"]]),
-          open(f"experiments/finetune_{DATA}_results.json", "w"))
+          open(f"experiments/finetune_{TAG}_results.json", "w"))
 print("\nDone.")
